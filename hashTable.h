@@ -11,8 +11,6 @@ struct HashTable {
 
 HashTable *HashTable_new(int size);
 
-int hashFuncton(int size, int key);
-
 void hashTable_insert(HashTable *hash, int codClient, char *name);
 
 void hashTable_delete(HashTable *hash, int codClient);

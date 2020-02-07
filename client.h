@@ -10,8 +10,8 @@ struct Client {
 
 Client *Client_new(char *name, int codClient);
 
-void client_write(Client *client, FILE *out);
+void client_fm_write(Client *client, FILE *out);
 
-Client *client_read(FILE *in);
+Client *client_fm_read(FILE *in);
 
 #endif // CLIENT_H_

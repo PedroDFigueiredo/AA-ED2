@@ -20,16 +20,18 @@ Node *Node_new(Client *client, Node *next) {
 };
 
 Node *createClientNode(int codClient, char *name) {
-	Client * client = Client_new(name, codClient);
+	Client *client = Client_new(name, codClient);
 	return Node_new(client, NULL);
 };
 
 struct LinkedList {
+	int size;
 	Node *head;
 };
 
 LinkedList *LinkedList_new() {
 	LinkedList *list = malloc(sizeof(LinkedList));
+	list->size = 0;
 	return list;
 };
 
@@ -61,6 +63,9 @@ Client *list_findClientByCod(LinkedList *list, int codClient) {
 
 void list_insertNode(LinkedList *list, Node *node) {
 	Node *lastNode = list_getLastNode(list);
+	list->size++;
+
+
 	if (lastNode == NULL)
 		list->head = node;
 	else 
@@ -73,6 +78,8 @@ void list_delete(LinkedList *list, int codClient) {
 	if (node->client->codClient == codClient) {
 		list->head = node->next;
 		free(node);
+		list->size--;
+
 		return;
 	};
 
@@ -82,6 +89,8 @@ void list_delete(LinkedList *list, int codClient) {
 			node->next = nodeToDelete->next;
 			free(nodeToDelete->client);
 			free(nodeToDelete);
+			list->size--;
+
 			return ;
 		} else 
 			node = node->next;

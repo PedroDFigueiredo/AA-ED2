@@ -15,6 +15,7 @@ Node *Node_new(Client *client, Node *next);
 Node *createClientNode(int codClient, char *name);
 
 struct LinkedList {
+	int size;
 	Node *head;
 };
 

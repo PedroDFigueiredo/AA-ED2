@@ -30,6 +30,7 @@ LinkedList *getHashList(HashTable *hash, int codClient) {
 };
 
 void hashTable_insert(HashTable *hash, int codClient, char *name) {;
+
 	LinkedList *indexedList = getHashList(hash, codClient); 
 	
 	Node *nodeToBeInserted = createClientNode(codClient, name);
@@ -62,10 +63,5 @@ void hashTable_delete(HashTable *hash, int codClient) {
 	Client *client = list_findClientByCod(indexedList, codClient);
 
 	list_delete(indexedList, codClient);
-	
-};
-
-void hashTable_write(HashTable *hash, FILE *out) {
-	fwrite(&hash->size, sizeof(int), 1, out);
 	
 };
