@@ -7,9 +7,6 @@
 #include "hashTable.h"
 #include "fileManager.h"
 
-// todo remove this
-// #include <conio.h>
-
 
 int main(int argc, char** argv) {
 	int size = 15;
